@@ -1,0 +1,195 @@
+﻿@model IEnumerable<handicrafe.Models.Handicraft>
+
+@{
+    ViewData["Title"] = "My_Product";
+    Layout = "~/Views/Shared/_vendor_Layout1.cshtml";
+
+}
+ <style>
+     body{
+         background-color:#fff !important;
+     }
+     a{
+         color:none !important;
+
+     }
+
+    .input {
+        border: none;
+        color: #000;
+        padding: 6px 70px;
+        border-radius: 5px;
+        box-shadow: rgb(0 0 0 / 25%) 0px 54px 55px, rgb(0 0 0 / 12%) 0px -12px 30px, rgb(0 0 0 / 12%) 0px 4px 6px, rgb(0 0 0 / 17%) 0px 12px 13px, rgb(0 0 0 / 9%) 0px -3px 5px;
+    }
+
+
+    .itemv {
+        width: 300px;
+        box-shadow: rgb(0 0 0 / 35%) 0px 5px 15px;
+        border-radius: 18px;
+        padding: 17px;
+        background-color: #fff;
+        display: flex;
+        font-family: auto;
+        font-size: 19px;
+        margin: 10px;
+
+        letter-spacing: 2px;
+        padding: 13px 39px !important;
+    }
+
+        .itemv .icon i {
+            position: absolute;
+            position: absolute;
+            top: -13px;
+            left: -15px;
+            font-size: 2.5em;
+            color: #33b35a;
+            padding: 3px
+        }
+
+    .value {
+        font-size: 3em;
+        font-weight: 400;
+        padding: 0;
+        color: #000"
+    }
+
+    .datespan {
+        position: absolute;
+        padding: 7px 17px;
+        box-shadow: rgb(17 17 26 / 10%) 0px 1px 0px, rgb(17 17 26 / 10%) 0px 8px 24px, rgb(17 17 26 / 10%) 0px 16px 48px;
+    }
+    table span{
+        font-family: serif;
+        font-weight: 600;
+    }
+ </style>
+
+
+
+<div class="row" style="display:flex;justify-content:space-around;        margin-bottom:76px;">
+
+
+    <div class="col-2 itemv">
+        <div class="icon">
+            <i class="fa fa-user-o" style="font-size: 1.5em;color: #33b35a;padding:3px"></i>
+        </div>
+        <div>
+            Number Product <br />
+
+            <div style="font-size: 3em;font-weight: 400;padding:25px;color:#000">
+                @Model.Count()
+            </div>
+        </div>
+    </div>
+
+    <div class="col-3 itemv">
+        <div class="icon">
+            <i class="fa fa-product-hunt" style="font-size: 1.5em;color: #33b35a;padding:3px"></i>
+        </div>
+        <div>
+            T-sales value<br />
+
+            <div style="font-size: 3em;font-weight: 400;padding:25px 0;color:#000">
+                @ViewBag.total
+            </div>
+        </div>
+    </div>
+    <div class="col-2 itemv">
+            <div class="icon">
+                <i class="fa fa-safari" style="font-size: 1.5em;color: #33b35a;padding:3px"></i>
+            </div>
+            <div>
+                Pieces sold<br />
+
+                <div style="font-size: 3em;font-weight: 400;padding:25px;color:#000">
+                @ViewBag.PIECES <span style="font-size:20px;color:#000"></span>
+                </div>
+            </div>
+    </div>  
+    <div class="col-2 itemv">
+        <div class="icon">
+            <i class="fa fa-y-combinator-square" style="font-size: 1.5em;color: #33b35a;padding:3px"></i>
+        </div>
+        <div>
+            Empty Eroducts<br />
+
+            <div style="font-size: 3em;font-weight: 400;padding:25px;color:#000">
+                @ViewBag.Empty
+            </div>
+        </div>
+    </div>
+
+</div>
+
+
+
+
+<p>
+    <a asp-action="Create" style="background-color: #33b35a;
+    border-radius: 5px;
+    color: #fff;
+    padding: 3px 9px;"><i class="fa fa-plus-circle"></i>Create New</a>
+    
+    
+</p>
+<table class="table" style=" box-shadow: rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+    background-color: #fff;">
+@*    <thead>
+        <tr>
+             <th>
+                @Html.DisplayNameFor(model => model.Image)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Datee)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Price)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Quantity)
+            </th>
+            <th></th>
+        </tr>
+    </thead>*@
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+                <td>
+   
+                    <img src=@Url.Content("~/image/"+ @item.Image) asp-append-version="true" style="width:104px;height:104px">
+                </td>
+                <td>
+                    <span>@Html.DisplayNameFor(model => model.Name)</span> :
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                    <span>@Html.DisplayNameFor(modelItem => item.Datee) :</span>
+                @Html.DisplayFor(modelItem => item.Datee)
+            </td>
+            <td>
+                    <span>@Html.DisplayNameFor(modelItem => item.Price) :</span>
+                @Html.DisplayFor(modelItem => item.Price)
+            </td>
+            <td>
+                    <span>@Html.DisplayNameFor(modelItem => item.Quantity) :</span>
+                @Html.DisplayFor(modelItem => item.Quantity)
+            </td>
+
+@*            <td>
+                @Html.DisplayFor(modelItem => item.IdNavigation.FName) 
+            </td>*@
+            <td>
+                    <a asp-action="Editt" asp-route-id="@item.IdHandicraft"><i class="fa fa-edit"></i></a> |
+                    <a asp-action="Details" asp-route-id="@item.IdHandicraft"><i class="fa fa-street-view"></i></a> |
+                    <a asp-action="Delete" asp-route-id="@item.IdHandicraft"><i class="fa fa-trash"></i></a>
+
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

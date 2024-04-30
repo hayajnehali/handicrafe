@@ -1,0 +1,41 @@
+﻿@*@model Tuple<IEnumerable<handicrafe.Models.FinancialAccount>
+,IEnumerable<handicrafe.Models.Sale>
+,IEnumerable<handicrafe.Models.UserInfo>>*@
+@*
+@model IEnumerable<handicrafe.Models.Handicraft>*@
+    @{
+    Layout = "~/Views/Shared/admin_layout.cshtml";
+    }
+
+@model Tuple<IEnumerable<handicrafe.Models.FinancialAccount>,IEnumerable<handicrafe.Models.UserInfo>>
+
+<div class="row" style="
+    color: #000;
+    font-weight: 400;
+">
+                        <div class="col-3 bg-info m-3 p-3" style="border-radius:6px">
+                            Number Of Coustomer : @ViewBag.numberOfCustomer
+                        </div>
+    <div class="col-3 bg-info m-3 p-3" style="border-radius:6px">
+                            Number Of Product : @ViewBag.numberOfVendor
+                        </div>
+    <div class="col-3 bg-info m-3 p-3" style="border-radius:6px">
+                            Profits : @ViewBag.Profits $
+                        </div>
+
+
+    <div class="col-3 bg-info m-3 p-3" style="border-radius:6px">
+                            Target : @ViewBag.target $
+                        </div>
+    <div class="col-3 bg-info m-3 p-3" style="border-radius:6px">
+                            Number Of Pieces sold : @ViewBag.sale 
+                        </div>
+    <div class="col-3 bg-info m-3 p-3" style="border-radius:6px">
+                            Number Of Vendor : @ViewBag.numberOfVendor
+                        </div>
+
+                    </div>
+
+
+
+                

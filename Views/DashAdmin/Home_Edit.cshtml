@@ -1,0 +1,46 @@
+﻿@model handicrafe.Models.Home
+
+@{
+    ViewData["Title"] = "Home_Edit";
+    Layout = "~/Views/Shared/admin_layout.cshtml";
+}
+
+
+<div class="row" style="    background-color: #c7c7c7;
+    border-radius: 10px;
+    padding: 38px;">
+
+    <div class="col-md-4">
+        <h4>Home</h4>
+        <hr />
+        <form asp-action="Home_Edit"  enctype="multipart/form-data" style="color:aliceblue !important">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <input type="hidden" asp-for="Id" />
+            <div class="form-group">
+                <label asp-for="ImageFile_home" class="control-label"></label>
+                <input asp-for="ImageFile_home" class="form-control" />
+                <span asp-validation-for="ImageFile_home" class="text-danger"></span>
+            </div>
+
+              <input asp-for="Imag" class="form-control" style="display:none;" />
+            <div class="form-group">
+                <label asp-for="Hometext" class="control-label"></label>
+                <input asp-for="Hometext" class="form-control" />
+                <span asp-validation-for="Hometext" class="text-danger"></span>
+            </div>
+            <div class="form-group"> 
+                <label asp-for="Text2" lass="control-label"></label>
+                <input asp-for="Text2" class="form-control" />
+                <span asp-validation-for="Text2" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Save" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+

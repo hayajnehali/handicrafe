@@ -1,0 +1,43 @@
+﻿@model IEnumerable<handicrafe.Models.Home>
+
+@{
+    ViewData["Title"] = "Home";
+    Layout = "~/Views/Shared/admin_layout.cshtml";
+}
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" type="text/css" href="~/admin/homecart.css"  />
+
+<section class="row" style="margin-top:-50px">
+        @foreach (var itemm in Model)
+        {
+        <div class="col-12 my-5">
+
+         @*   <a class="card" href="https://codetheweb.blog/2017/10/06/html-syntax/" style="--bg-img: url( @Url.Content("~/image/" + itemm.Imag))">        </a>
+          *@
+            <img src=@Url.Content("~/image/" + itemm.Imag) asp-append-version="true" style="width: 100%;
+    border-radius: 6px;
+    height: 100vh;
+    opacity: 1;">
+
+            <div style="position:absolute;top:50%;left:10%;color:aliceblue;background-color:rgba(0,0,0,0.5);padding:2rem">
+                <h1>@itemm.Hometext</h1>
+                <p>@itemm.Text2</p>
+                <div class="">
+                    <div > 
+                        <a asp-action="Home_Edit" asp-controller="DashAdmin" asp-route-id="@itemm.Id" style="BACKGROUND-COLOR: #ff9931;padding: 6px 36px; border: 1px solid;border-radius: 1px;color:#fff;">Edit</a>
+                    </div>
+                </div>
+            </div>
+
+      
+    </div>
+    }
+</section>
+
+
+
+
+
+
+
+

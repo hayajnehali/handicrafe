@@ -1,0 +1,98 @@
+﻿@model handicrafe.Models.AboutU
+
+@{
+    ViewData["Title"] = "Aboutus";
+    Layout = "~/Views/Shared/admin_layout.cshtml";
+}
+
+@*<h1>Aboutus</h1>*@
+<style>
+   
+</style>
+<div style=" background-color: #ffffff;
+    border-radius: 5px; padding: 2rem; box-shadow: rgb(0 0 0 / 35%) 0px 5px 15px;">
+
+    <div class="row">
+        <div class="col-5">
+            <img src="~/admin/assets/img/city-profile.jpg" style="width:100%;height:100%
+                   ; border-radius:5px;
+                   " />
+        </div>
+
+        <div class="col-6">
+            <dl class="row">
+                <h4 class="col-sm-12">Contact Information</h4>
+                <hr class="col-sm-12" />
+                <dt class="col-sm-4">
+                    <i class="fa fa-location-arrow" style="color:black"></i>
+                    @Html.DisplayNameFor(model => model.Locations)
+                </dt>
+                <dd class="col-sm-8">
+                    @Html.DisplayFor(model => model.Locations)
+                </dd>
+                <dt class="col-sm-4">
+                    <i class="fa fa-phone" style="color:blue"></i>
+                    @Html.DisplayNameFor(model => model.Phone)
+                </dt>
+                <dd class="col-sm-8">
+                    @Html.DisplayFor(model => model.Phone)
+                </dd>
+                <dt class="col-sm-4">
+                    <i class="fa fa-yahoo" style="color:yellow"></i>
+                    @Html.DisplayNameFor(model => model.Email)
+                </dt>
+                <dd class="col-sm-8">
+                    @Html.DisplayFor(model => model.Email)
+                </dd>
+                <hr />
+                <dt class="col-sm-4">
+                    <i class="fa fa-facebook" style="color:blue"></i>
+                    @Html.DisplayNameFor(model => model.Facebock)
+                </dt>
+                <dd class="col-sm-8">
+                    @Html.DisplayFor(model => model.Facebock)
+                </dd>
+                <dt class="col-sm-4">
+                    <i class="fa fa-instagram" style="color:red"></i>
+                    @Html.DisplayNameFor(model => model.Instagram)
+                </dt>
+                <dd class="col-sm-8">
+                    @Html.DisplayFor(model => model.Instagram)
+                </dd>
+                <dt class="col-sm-4">
+                    <i class="fa fa-twitter" style="color:blue"></i>
+                    @Html.DisplayNameFor(model => model.Twitter)
+                </dt>
+                <dd class="col-sm-8">
+
+                    @Html.DisplayFor(model => model.Twitter)
+                </dd>
+                <hr />
+                <dt class="col-sm-4">
+                    <i class="fa fa-location-arrow" style="color:black"></i>
+                    @Html.DisplayNameFor(model => model.LocationL)
+                </dt>
+                <dd class="col-sm-8">
+                    @Html.DisplayFor(model => model.LocationL)
+                </dd>
+                <dt class="col-sm-4">
+                    <i class="fa fa-location-arrow" style="color:black"></i>
+                    @Html.DisplayNameFor(model => model.LocationY)
+                </dt>
+                <dd class="col-sm-8">
+                    @Html.DisplayFor(model => model.LocationY)
+                </dd>
+            </dl>
+            <div>
+                <a style="    padding: 7px 20px;
+                    border-radius: 1px; background-color: #000 !important;
+                    color: #fff; font-family: 'FontAwesome';
+                    box-shadow: rgb(50 50 93 / 25%) 0px 6px 12px -2px, rgb(0 0 0 / 30%) 0px 3px 7px -3px;" asp-action="Edit_About" asp-route-id="@Model.Id">Edit</a>
+
+        </div>
+
+
+    </div>
+
+</div>
+

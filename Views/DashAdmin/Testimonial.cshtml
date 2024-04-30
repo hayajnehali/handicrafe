@@ -1,0 +1,51 @@
+﻿@model IEnumerable<handicrafe.Models.Testimonial>
+
+@{
+    ViewData["Title"] = "Testimonial";
+    Layout = "~/Views/Shared/admin_layout.cshtml";
+}
+@*
+<div style="width:100%; text-align">
+    <h2>Testimonial</h2>
+</div>
+*@
+
+<style>
+    .item{
+        background-color: #ffffff;
+        border-radius: 20px;
+        font-family: initial;
+        box-shadow: rgb(0 0 0 / 25%) 0px 54px 55px, rgb(0 0 0 / 12%) 0px -12px 30px, rgb(0 0 0 / 12%) 
+        0px 4px 6px, rgb(0 0 0 / 17%) 0px 12px 13px, rgb(0 0 0 / 9%) 0px -3px 5px;
+    }
+</style>
+@foreach (var item in Model) {
+    <div class="row m-3 p-3 item">
+        <div class="col-2" style="height:115px;">
+            <img src=@Url.Content("~/image/"+item.IdNavigation.Image) style="width:100%;height:100%; border-radius:50%;">
+        </div>
+    <div class="col-9">
+            @Html.DisplayFor(modelItem => item.Text)
+            <div class="" style="color:dimgrey;display:flex;flex-direction:column">
+                <div>
+                    <i class="fa fa-user-circle" style="color:#000"></i>
+                    @Html.DisplayFor(modelItem => item.IdNavigation.FName) @Html.DisplayFor(modelItem => item.IdNavigation.LName)
+
+                </div>
+                <div style="text-align:right">
+                @if (item.Acceptt == "0")
+                {
+                    <a asp-action="EditTistimonialToView" style="color: #000;padding: 3px 5px;border-radius: 2px;width:78px" asp-route-id="@item.IdTestimonial">Undisplay</a>
+                }
+                else
+                {
+
+                    <a asp-action="EditTistimonialToUnView" style="color: #000;padding: 3px 15px;border-radius: 2px;width:78px" asp-route-id="@item.IdTestimonial">Display</a>
+
+                    }                    <a asp-action="DeleteTistimonial" style="color: #000;padding: 3px 15px;border-radius: 2px;width:78px" asp-route-id="@item.IdTestimonial">Delete</a>
+                </div>
+            </div>
+    </div>
+
+</div>
+}

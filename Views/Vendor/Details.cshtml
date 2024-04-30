@@ -1,0 +1,69 @@
+﻿@model handicrafe.Models.Handicraft
+
+@{
+    ViewData["Title"] = "Details";
+    Layout = "~/Views/Shared/_vendor_Layout1.cshtml";
+}
+
+<h1></h1>
+
+
+
+
+
+
+<div class="row" style="border: 1px solid; border-radius: 3px; padding: 11px;">
+    <div class="col-6" style="height:400px">
+        <img src=@Url.Content("~/image/"+ Model.Image) asp-append-version="true" style="width:100%;height:100%">
+
+    </div>
+    <div class="col-6" >
+ <div>
+            <h4>Details</h4>
+            <hr />
+            <dl class="row">
+                <dt class="col-sm-4 py-2">
+                    @Html.DisplayNameFor(model => model.Name)
+                </dt>
+                <dd class="col-sm-8 py-2">
+                    @Html.DisplayFor(model => model.Name)
+                </dd>
+                <dt class="col-sm-4 py-2">
+                    @Html.DisplayNameFor(model => model.Datee)
+                </dt>
+                <dd class="col-sm-8 py-2">
+                    @Html.DisplayFor(model => model.Datee)
+                </dd>
+                <dt class="col-sm-4 py-2">
+                    @Html.DisplayNameFor(model => model.Price)
+                </dt>
+                <dd class="col-sm-8 py-2">
+                    @Html.DisplayFor(model => model.Price)
+                </dd>
+                <dt class="col-sm-4 py-2">
+                    @Html.DisplayNameFor(model => model.Quantity)
+                </dt>
+                <dd class="col-sm-8 py-2">
+                    @Html.DisplayFor(model => model.Quantity)
+                </dd>
+ 
+                <dt class="col-sm-4 py-2">
+                    @*  @Html.DisplayNameFor(model => model.IdNavigation)*@
+                    Vendor Name
+                </dt>
+                <dd class="col-sm-8 py-2">
+                    @*
+                    @Html.DisplayFor(model => model.IdNavigation.FName +" "+ model.IdNavigation.LName)*@
+                    @(Model.IdNavigation.FName + " " + Model.IdNavigation.LName)
+                </dd>
+
+                <dt class="col-sm-6 py-2">
+                    <div>
+                        <a asp-action="Editt" asp-route-id="@Model.IdHandicraft">Edit</a> |
+                        <a asp-action="My_Product">Back to List</a>
+                    </div>
+                </dt>
+            </dl>
+        </div>
+    </div>
+</div>

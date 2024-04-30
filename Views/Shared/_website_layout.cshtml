@@ -1,0 +1,643 @@
+﻿
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<title>Home</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+<!--===============================================================================================-->	
+	<link rel="icon" type="image/png" href="~/website/images/icons/favicon.png"/>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="~/website/vendor/bootstrap/css/bootstrap.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="~/website/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="~/website/fonts/iconic/css/material-design-iconic-font.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="~/website/fonts/linearicons-v1.0.0/icon-font.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="~/website/vendor/animate/animate.css">
+<!--===============================================================================================-->	
+	<link rel="stylesheet" type="text/css" href="~/website/vendor/css-hamburgers/hamburgers.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="~/website/vendor/animsition/css/animsition.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="~/website/vendor/select2/select2.min.css">
+<!--===============================================================================================-->	
+	<link rel="stylesheet" type="text/css" href="~/website/vendor/daterangepicker/daterangepicker.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="~/website/vendor/slick/slick.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="~/website/vendor/MagnificPopup/magnific-popup.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="~/website/vendor/perfect-scrollbar/perfect-scrollbar.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="~/website/css/util.css">
+	<link rel="stylesheet" type="text/css" href="~/website/css/main.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+
+<!--===============================================================================================-->
+<script>
+		//$(Document).ready(function () {
+		//	$("#myInput").on("keyup", function () {
+		//		var value = $(this).val().toLowerCase();
+		//		$("#myDIV ").filter(function () {
+		//			$(this).toggle($(this).text().toLowerCase().indexOf(value) > -1);
+		//		});
+		//	});
+		//});
+
+		
+
+</script>
+
+</head>
+<body class="animsition">
+	
+	<!-- Header -->
+	<header>
+		<!-- Header desktop -->
+		<div class="container-menu-desktop">
+ 
+			<div class="wrap-menu-desktop">
+				<nav class="limiter-menu-desktop container">
+					
+					<!-- Logo desktop -->		
+					<a href="~/website/#" class="logo">
+						<img src="~/website/images/icons/logo-01.png" alt="IMG-LOGO">
+					</a>
+
+					<!-- Menu desktop -->
+					<div class="menu-desktop">
+						<ul class="main-menu">
+							<li class="active-menu">
+								<a href="~/website/index.html">Home</a>
+							</li>
+
+							<li>
+								<a href="#Product">Product</a>
+							</li>
+
+							<li class="label1" data-label1="hot">
+								<a href="~/website/shoping-cart.html">Features</a>
+							</li>
+
+							<li>
+								<a href="#Feedback">Feedback</a>
+							</li>
+
+							<li>
+								<a href="#about">About</a>
+							</li>
+
+							@foreach (var item in ViewBag.account)
+							{
+								if (item.RoleName == "vendor")
+								{
+
+
+									<li>
+										<a asp-action="My_Product" asp-controller="Vendor" asp-route-id="@item.Id">My Account</a>
+
+									</li>
+								}
+								if (item.RoleName == "user")
+								{
+									<li>
+										<a asp-action="tovendor" asp-controller="Customer" asp-route-id="@item.Id">My Account</a>
+
+									</li>
+								}
+							}
+							 <li>
+								<a  asp-controller="DashAdmin" asp-action="Logout">Logout</a>
+							</li>
+						</ul>
+					</div>	
+
+					<!-- Icon header -->
+					<div class="wrap-icon-header flex-w flex-r-m">
+						<div class=" icon-header-item cl2 hov-cl1 trans-04 p-l-22 p-r-11 " style="display:flex;">
+							<i class="zmdi zmdi-search"></i>
+							<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+
+							<input id="myInput" class="plh3" type="text" style="background-color:inherit;    border-bottom: 2px solid;" onkeyup="myFunction()">
+						</div>
+
+					</div>
+				</nav>
+			</div>	
+		</div>
+
+		<!-- Header Mobile -->
+		<div class="wrap-header-mobile">
+			<!-- Logo moblie -->		
+			<div class="logo-mobile">
+				<a href="~/website/index.html"><img src="~/website/images/icons/logo-01.png" alt="IMG-LOGO"></a>
+			</div>
+
+			<!-- Icon header -->
+			<div class="wrap-icon-header flex-w flex-r-m m-r-15">
+			</div>
+
+			<!-- Button show menu -->
+			<div class="btn-show-menu-mobile hamburger hamburger--squeeze">
+				<span class="hamburger-box">
+					<span class="hamburger-inner"></span>
+				</span>
+			</div>
+		</div>
+
+
+		<!-- Menu Mobile -->
+		<div class="menu-mobile">
+			<ul class="main-menu-m">
+				<li class="active-menu">
+					<a href="~/website/index.html">Home</a>
+				</li>
+
+				<li>
+					<a href="#Product">Product</a>
+				</li>
+
+				<li>
+					<a href="~/website/shoping-cart.html">Features</a>
+				</li>
+
+				<li>
+					<a href="#Feedback">Feedback</a>
+				</li>
+
+				<li>
+					<a href="#about">About</a>
+				</li>
+
+				@foreach (var item in ViewBag.account)
+				{
+					if (item.RoleName == "vendor")
+					{
+
+
+						<li>
+							<a asp-action="My_Product" asp-controller="Vendor" asp-route-id="@item.Id">My Account</a>
+
+						</li>
+					}
+				}
+			</ul>
+		</div>
+
+		<!-- Modal Search -->
+		<div class="modal-search-header flex-c-m trans-04 js-hide-modal-search">
+			<div class="container-search-header">
+				<button class="flex-c-m btn-hide-modal-search trans-04 js-hide-modal-search">
+					<img src="~/website/images/icons/icon-close2.png" alt="CLOSE">
+				</button>
+
+				<form class="wrap-search-header flex-w p-l-15">
+					<button class="flex-c-m trans-04">
+						<i class="zmdi zmdi-search"></i>
+					</button>
+					<input class="plh3" type="text" name="search" placeholder="Search...">
+						<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+
+			<input id="myInput" class="plh3" type="text" onkeyup="myFunction()" placeholder="Search..">
+				</form>
+			</div>
+		</div>
+	</header>
+
+        @RenderBody()
+
+	<div id="map" style="width:100%;height:300px;background:green"></div>
+
+	<!-- Footer -->
+	<footer class="bg3 p-t-75 p-b-32" id="Feedback">
+		<div class="container">
+			<div class="row">
+
+
+				<div class="col-sm-6 col-lg-3 p-b-50">
+					<h4 class="stext-301 cl0 p-b-30">
+						contact 
+					</h4>
+					<p class="stext-107 cl7 size-201">
+						phone : @Model.Item3.Phone
+					</p>
+					<p class="stext-107 cl7 size-201">
+						Email : @Model.Item3.Email
+					</p>
+
+				</div>
+
+				<div class="col-sm-6 col-lg-3 p-b-50">
+					<h4 class="stext-301 cl0 p-b-30">
+						Accounts
+					</h4>
+
+					<p class="stext-107 cl7 size-201">
+						Site accounts on social media
+					</p>
+
+					<div class="p-t-27">
+						<a href="@Model.Item3.Facebock" class="fs-18 cl7 hov-cl1 trans-04 m-r-16">
+							<i class="fa fa-facebook"></i>
+						</a>
+
+						<a href="@Model.Item3.Instagram" class="fs-18 cl7 hov-cl1 trans-04 m-r-16">
+							<i class="fa fa-instagram"></i>
+						</a>
+
+						<a href="@Model.Item3.Twitter" class="fs-18 cl7 hov-cl1 trans-04 m-r-16">
+							<i class="fa fa-twitter"></i>
+						
+						</a>
+					</div>
+				</div>
+				<div class="col-sm-6 col-lg-3 p-b-50">
+					<h4 class="stext-301 cl0 p-b-30">
+						Location
+					</h4>
+					<p class="stext-107 cl7 size-201">
+						@Model.Item3.Locations
+					</p>
+
+					<input id="l" type="hidden" value=@Model.Item3.LocationL />
+					<input id="x" type="hidden" value=@Model.Item3.LocationY />
+				</div>
+				<div class="col-sm-6 col-lg-3 p-b-50">
+					<h4 class="stext-301 cl0 p-b-30">
+						Feedback
+					</h4>
+
+					<form asp-action="Feedback" asp-controller="Vendor">
+						<div class="wrap-input1 w-full p-b-4">
+							<input class="input1 bg-none plh1 stext-107 cl7" type="text" name="message" placeholder="Write Your Feedback">
+							@*<input type="text" asp-for="Id" />*@
+							<div class="focus-input1 trans-04"></div>
+						</div>
+
+						<div class="p-t-18">
+							<button class="flex-c-m stext-101 cl0 size-103 bg1 bor1 hov-btn2 p-lr-15 trans-04">
+								Subscribe
+							</button>
+						</div>
+					</form>
+				</div>
+			</div>
+
+			<div class="">
+				<div class="flex-c-m flex-w p-b-18">
+					<a href="~/website/#" class="m-all-1">
+						<img src="~/website/images/icons/icon-pay-01.png" alt="ICON-PAY">
+					</a>
+
+					<a href="~/website/#" class="m-all-1">
+						<img src="~/website/images/icons/icon-pay-02.png" alt="ICON-PAY">
+					</a>
+
+					<a href="~/website/#" class="m-all-1">
+						<img src="~/website/images/icons/icon-pay-03.png" alt="ICON-PAY">
+					</a>
+
+					<a href="~/website/#" class="m-all-1">
+						<img src="~/website/images/icons/icon-pay-04.png" alt="ICON-PAY">
+					</a>
+
+					<a href="~/website/#" class="m-all-1">
+						<img src="~/website/images/icons/icon-pay-05.png" alt="ICON-PAY">
+					</a>
+				</div>
+
+				<p class="stext-107 cl6 txt-center">
+					<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+					Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | Made with <i class="fa fa-heart-o" aria-hidden="true"></i> by <a href="~/website/https://colorlib.com" target="_blank">Colorlib</a> &amp; distributed by <a href="~/website/https://themewagon.com" target="_blank">ThemeWagon</a>
+					<!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
+
+				</p>
+			</div>
+		</div>
+	</footer>
+
+
+	<!-- Back to top -->
+	<div class="btn-back-to-top" id="myBtn">
+		<span class="symbol-btn-back-to-top">
+			<i class="zmdi zmdi-chevron-up"></i>
+		</span>
+	</div>
+
+	<!-- Modal1 -->
+	<div class="wrap-modal1 js-modal1 p-t-60 p-b-20">
+		<div class="overlay-modal1 js-hide-modal1"></div>
+
+		<div class="container">
+			<div class="bg0 p-t-60 p-b-30 p-lr-15-lg how-pos3-parent">
+				<button class="how-pos3 hov3 trans-04 js-hide-modal1">
+					<img src="~/website/images/icons/icon-close.png" alt="CLOSE">
+				</button>
+
+				<div class="row">
+					<div class="col-md-6 col-lg-7 p-b-30">
+						<div class="p-l-25 p-r-30 p-lr-0-lg">
+							<div class="wrap-slick3 flex-sb flex-w">
+								<div class="wrap-slick3-dots"></div>
+								<div class="wrap-slick3-arrows flex-sb-m flex-w"></div>
+
+								<div class="slick3 gallery-lb">
+									<div class="item-slick3" data-thumb="images/product-detail-01.jpg">
+										<div class="wrap-pic-w pos-relative">
+											<img src="~/website/images/product-detail-01.jpg" alt="IMG-PRODUCT">
+
+											<a class="flex-c-m size-108 how-pos1 bor0 fs-16 cl10 bg0 hov-btn3 trans-04" href="~/website/images/product-detail-01.jpg">
+												<i class="fa fa-expand"></i>
+											</a>
+										</div>
+									</div>
+
+									<div class="item-slick3" data-thumb="images/product-detail-02.jpg">
+										<div class="wrap-pic-w pos-relative">
+											<img src="~/website/images/product-detail-02.jpg" alt="IMG-PRODUCT">
+
+											<a class="flex-c-m size-108 how-pos1 bor0 fs-16 cl10 bg0 hov-btn3 trans-04" href="~/website/images/product-detail-02.jpg">
+												<i class="fa fa-expand"></i>
+											</a>
+										</div>
+									</div>
+
+									<div class="item-slick3" data-thumb="images/product-detail-03.jpg">
+										<div class="wrap-pic-w pos-relative">
+											<img src="~/website/images/product-detail-03.jpg" alt="IMG-PRODUCT">
+
+											<a class="flex-c-m size-108 how-pos1 bor0 fs-16 cl10 bg0 hov-btn3 trans-04" href="~/website/images/product-detail-03.jpg">
+												<i class="fa fa-expand"></i>
+											</a>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+
+					<div class="col-md-6 col-lg-5 p-b-30">
+						<div class="p-r-50 p-t-5 p-lr-0-lg">
+							<h4 class="mtext-105 cl2 js-name-detail p-b-14">
+								Lightweight Jacket
+							</h4>
+
+							<span class="mtext-106 cl2">
+								$58.79
+							</span>
+
+							<p class="stext-102 cl3 p-t-23">
+								Nulla eget sem vitae eros pharetra viverra. Nam vitae luctus ligula. Mauris consequat ornare feugiat.
+							</p>
+
+							<!--  -->
+							<div class="p-t-33">
+								<div class="flex-w flex-r-m p-b-10">
+									<div class="size-203 flex-c-m respon6">
+										Size
+									</div>
+
+									<div class="size-204 respon6-next">
+										<div class="rs1-select2 bor8 bg0">
+											<select class="js-select2" name="time">
+												<option>Choose an option</option>
+												<option>Size S</option>
+												<option>Size M</option>
+												<option>Size L</option>
+												<option>Size XL</option>
+											</select>
+											<div class="dropDownSelect2"></div>
+										</div>
+									</div>
+								</div>
+
+								<div class="flex-w flex-r-m p-b-10">
+									<div class="size-203 flex-c-m respon6">
+										Color
+									</div>
+
+									<div class="size-204 respon6-next">
+										<div class="rs1-select2 bor8 bg0">
+											<select class="js-select2" name="time">
+												<option>Choose an option</option>
+												<option>Red</option>
+												<option>Blue</option>
+												<option>White</option>
+												<option>Grey</option>
+											</select>
+											<div class="dropDownSelect2"></div>
+										</div>
+									</div>
+								</div>
+
+								<div class="flex-w flex-r-m p-b-10">
+									<div class="size-204 flex-w flex-m respon6-next">
+										<div class="wrap-num-product flex-w m-r-20 m-tb-10">
+											<div class="btn-num-product-down cl8 hov-btn3 trans-04 flex-c-m">
+												<i class="fs-16 zmdi zmdi-minus"></i>
+											</div>
+
+											<input class="mtext-104 cl3 txt-center num-product" type="number" name="num-product" value="1">
+
+											<div class="btn-num-product-up cl8 hov-btn3 trans-04 flex-c-m">
+												<i class="fs-16 zmdi zmdi-plus"></i>
+											</div>
+										</div>
+
+										<button class="flex-c-m stext-101 cl0 size-101 bg1 bor1 hov-btn1 p-lr-15 trans-04 js-addcart-detail">
+											Add to cart
+										</button>
+									</div>
+								</div>
+							</div>
+
+							<!--  -->
+							<div class="flex-w flex-m p-l-100 p-t-40 respon7">
+								<div class="flex-m bor9 p-r-10 m-r-11">
+									<a href="~/website/#" class="fs-14 cl3 hov-cl1 trans-04 lh-10 p-lr-5 p-tb-2 js-addwish-detail tooltip100" data-tooltip="Add to Wishlist">
+										<i class="zmdi zmdi-favorite"></i>
+									</a>
+								</div>
+
+								<a href="~/website/#" class="fs-14 cl3 hov-cl1 trans-04 lh-10 p-lr-5 p-tb-2 m-r-8 tooltip100" data-tooltip="Facebook">
+									<i class="fa fa-facebook"></i>
+								</a>
+
+								<a href="~/website/#" class="fs-14 cl3 hov-cl1 trans-04 lh-10 p-lr-5 p-tb-2 m-r-8 tooltip100" data-tooltip="Twitter">
+									<i class="fa fa-twitter"></i>
+								</a>
+
+								<a href="~/website/#" class="fs-14 cl3 hov-cl1 trans-04 lh-10 p-lr-5 p-tb-2 m-r-8 tooltip100" data-tooltip="Google Plus">
+									<i class="fa fa-google-plus"></i>
+								</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<!--===============================================================================================-->
+	<script src="~/website/vendor/jquery/jquery-3.2.1.min.js"></script>
+	<!--===============================================================================================-->
+	<script src="~/website/vendor/animsition/js/animsition.min.js"></script>
+	<!--===============================================================================================-->
+	<script src="~/website/vendor/bootstrap/js/popper.js"></script>
+	<script src="~/website/vendor/bootstrap/js/bootstrap.min.js"></script>
+	<!--===============================================================================================-->
+	<script src="~/website/vendor/select2/select2.min.js"></script>
+	<script>
+		$(".js-select2").each(function () {
+			$(this).select2({
+				minimumResultsForSearch: 20,
+				dropdownParent: $(this).next('.dropDownSelect2')
+			});
+		});
+
+
+	</script>
+	<!--===============================================================================================-->
+	<script src="~/website/vendor/daterangepicker/moment.min.js"></script>
+	<script src="~/website/vendor/daterangepicker/daterangepicker.js"></script>
+	<!--===============================================================================================-->
+	<script src="~/website/vendor/slick/slick.min.js"></script>
+	<script src="~/website/js/slick-custom.js"></script>
+	<!--===============================================================================================-->
+	<script src="~/website/vendor/parallax100/parallax100.js"></script>
+	<script>
+		$('.parallax100').parallax100();
+	</script>
+	<!--===============================================================================================-->
+	<script src="~/website/vendor/MagnificPopup/jquery.magnific-popup.min.js"></script>
+	<script>
+
+
+		$('.gallery-lb').each(function () { // the containers for all your galleries
+			$(this).magnificPopup({
+				delegate: 'a', // the selector for gallery item
+				type: 'image',
+				gallery: {
+					enabled: true
+				},
+				mainClass: 'mfp-fade'
+			});
+		});
+	</script>
+
+	<!--===============================================================================================-->
+	<script src="~/website/vendor/isotope/isotope.pkgd.min.js"></script>
+	<!--===============================================================================================-->
+	<script src="~/website/vendor/sweetalert/sweetalert.min.js"></script>
+	<script>
+		$('.js-addwish-b2').on('click', function (e) {
+			e.preventDefault();
+		});
+
+		$('.js-addwish-b2').each(function () {
+			var nameProduct = $(this).parent().parent().find('.js-name-b2').html();
+			$(this).on('click', function () {
+				swal(nameProduct, "is added to wishlist !", "success");
+
+				$(this).addClass('js-addedwish-b2');
+				$(this).off('click');
+			});
+		});
+
+		$('.js-addwish-detail').each(function () {
+			var nameProduct = $(this).parent().parent().parent().find('.js-name-detail').html();
+
+			$(this).on('click', function () {
+				swal(nameProduct, "is added to wishlist !", "success");
+
+				$(this).addClass('js-addedwish-detail');
+				$(this).off('click');
+			});
+		});
+
+		/*---------------------------------------------*/
+
+		$('.js-addcart-detail').each(function () {
+			var nameProduct = $(this).parent().parent().parent().parent().find('.js-name-detail').html();
+			$(this).on('click', function () {
+				swal(nameProduct, "is added to cart !", "success");
+			});
+		});
+
+	</script>
+	<!--===============================================================================================-->
+	<script src="~/website/vendor/perfect-scrollbar/perfect-scrollbar.min.js"></script>
+	<script>
+		$('.js-pscroll').each(function () {
+			$(this).css('position', 'relative');
+			$(this).css('overflow', 'hidden');
+			var ps = new PerfectScrollbar(this, {
+				wheelSpeed: 1,
+				scrollingThreshold: 1000,
+				wheelPropagation: false,
+			});
+
+			$(window).on('resize', function () {
+				ps.update();
+			})
+		});
+		function myFunction() {
+			// Declare variables
+			var input, filter, ul, li, a, i, txtValue;
+			input = document.getElementById('myInput');
+			filter = input.value.toUpperCase();
+
+			ul = document.querySelectorAll(".block2-txt-child1");
+			divv = document.querySelectorAll("#myDIV");
+			//li = ul.getElementsByTagName('a');
+			//console.log(ul[0]);
+
+			//   console.log("dddddd");
+			//console.log(ul[0].getElementsByTagName("a")[0].innerText);
+			// Loop through all list items, and hide those who don't match the search query
+			for (i = 0; i < ul.length; i++) {
+				a = ul[i].getElementsByTagName("a")[0];
+				//console.log(a);
+
+				txtValue = a.textContent || a.innerText;
+				console.log(txtValue);
+				if (txtValue.toUpperCase().indexOf(filter) > -1) {
+					divv[i].style.display = "";
+				} else {
+					divv[i].style.display = "none ";
+
+				}
+			}
+		}
+	
+		function initMap() {
+			// The location of Uluru
+			console.log(x);
+				console.log(l);
+			const uluru = { lat: @Model.Item3.LocationY , lng: @Model.Item3.LocationL };
+			// The map, centered at Uluru
+			const map = new google.maps.Map(document.getElementById("map"), {
+				zoom: 15,
+				center: uluru,
+			});
+			// The marker, positioned at Uluru
+			const marker = new google.maps.Marker({
+				position: uluru,
+				map: map,
+			});
+		}
+		window.initMap = initMap;
+
+	</script>
+	<!--===============================================================================================-->
+
+	<script src="~/website/js/main.js"></script>
+	<script src="https://maps.googleapis.com/maps/api/js?AIzaSyDHaP4ZjXY6iiYfKFjtavMpx_aBhwRHQ-Q&callback=initMap&v=weekly"
+			defer></script>
+</body>
+</html>

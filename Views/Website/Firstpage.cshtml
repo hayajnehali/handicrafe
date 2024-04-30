@@ -1,0 +1,602 @@
+﻿@*@model IEnumerable<handicrafe.Models.Home>*@
+@model Tuple<IEnumerable<Home>,IEnumerable<Handicraft>,AboutU,About,IEnumerable<Testimonial>>
+@{
+	//ViewData["Title"] = "Index";
+	Layout = "~/Views/Shared/_website_layout.cshtml";
+
+}
+
+
+
+
+<!-- Cart -->
+<div class="wrap-header-cart js-panel-cart">
+	<div class="s-full js-hide-cart"></div>
+
+	<div class="header-cart flex-col-l p-l-65 p-r-25">
+		<div class="header-cart-title flex-w flex-sb-m p-b-8">
+			<span class="mtext-103 cl2">
+				Your Cart
+			</span>
+
+			<div class="fs-35 lh-10 cl2 p-lr-5 pointer hov-cl1 trans-04 js-hide-cart">
+				<i class="zmdi zmdi-close"></i>
+			</div>
+		</div>
+
+		<div class="header-cart-content flex-w js-pscroll">
+			<ul class="header-cart-wrapitem w-full">
+				<li class="header-cart-item flex-w flex-t m-b-12">
+					<div class="header-cart-item-img">
+						<img src="~/website/images/item-cart-01.jpg" alt="IMG">
+					</div>
+
+					<div class="header-cart-item-txt p-t-8">
+						<a href="#" class="header-cart-item-name m-b-18 hov-cl1 trans-04">
+							White Shirt Pleat
+						</a>
+
+						<span class="header-cart-item-info">
+							1 x $19.00
+						</span>
+					</div>
+				</li>
+
+				<li class="header-cart-item flex-w flex-t m-b-12">
+					<div class="header-cart-item-img">
+						<img src="~/website/images/item-cart-02.jpg" alt="IMG">
+					</div>
+
+					<div class="header-cart-item-txt p-t-8">
+						<a href="#" class="header-cart-item-name m-b-18 hov-cl1 trans-04">
+							Converse All Star
+						</a>
+
+						<span class="header-cart-item-info">
+							1 x $39.00
+						</span>
+					</div>
+				</li>
+
+				<li class="header-cart-item flex-w flex-t m-b-12">
+					<div class="header-cart-item-img">
+						<img src="~/website/images/item-cart-03.jpg" alt="IMG">
+					</div>
+
+					<div class="header-cart-item-txt p-t-8">
+						<a href="#" class="header-cart-item-name m-b-18 hov-cl1 trans-04">
+							Nixon Porter Leather
+						</a>
+
+						<span class="header-cart-item-info">
+							1 x $17.00
+						</span>
+					</div>
+				</li>
+			</ul>
+
+			<div class="w-full">
+				<div class="header-cart-total w-full p-tb-40">
+					Total: $75.00
+				</div>
+
+				<div class="header-cart-buttons flex-w w-full">
+					<a href="shoping-cart.html" class="flex-c-m stext-101 cl0 size-107 bg3 bor2 hov-btn3 p-lr-15 trans-04 m-r-8 m-b-10">
+						View Cart
+					</a>
+
+					<a href="shoping-cart.html" class="flex-c-m stext-101 cl0 size-107 bg3 bor2 hov-btn3 p-lr-15 trans-04 m-b-10">
+						Check Out
+					</a>
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<!-- Slider -->
+<section class="section-slide">
+	<div class="wrap-slick1">
+
+
+		<div class="slick1">
+@foreach (var item in Model.Item1)
+		{
+
+
+			<div class="item-slick1" style="background-image:url(@Url.Content("~/image/" + item.Imag));">
+	
+				<div class="container h-full">
+					<div class="flex-col-l-m h-full p-t-100 p-b-30 respon5">
+						<div class="layer-slick1 animated visible-false" data-appear="rotateInDownLeft" data-delay="0">
+							<span class="ltext-101 cl2 respon2">
+								@item.Hometext
+							</span>
+						</div>
+
+						<div class="layer-slick1 animated visible-false" data-appear="rotateInUpRight" data-delay="800">
+							<h2 class="ltext-201 cl2 p-t-19 p-b-43 respon1">
+								@item.Text2
+							</h2>
+						</div>
+
+						<div class="layer-slick1 animated visible-false" data-appear="rotateIn" data-delay="1600">
+							<a href="product.html" class="flex-c-m stext-101 cl0 size-101 bg1 bor1 hov-btn1 p-lr-15 trans-04">
+								Shop Now
+							</a>
+						</div>
+					</div>
+				</div>
+			</div>
+					}
+		</div>
+	</div>
+</section>
+
+
+
+
+<!-- Content page -->
+<section class="bg0 p-t-75 p-b-120" id="about">
+	<div class="container">
+		<div class="row p-b-148">
+			<div class="col-md-7 col-lg-8">
+				<div class="p-t-7 p-r-85 p-r-15-lg p-r-0-md">
+					<h3 class="mtext-111 cl2 p-b-16">
+						About Site
+					</h3>
+ 
+					<p class="stext-113 cl6 p-b-26">
+						@Model.Item4.Text
+					</p>
+				</div>
+			</div>
+
+			<div class="col-11 col-md-5 col-lg-4 m-lr-auto">
+				<div class="how-bor1 ">
+					<div class="hov-img0">
+						<img src=@Url.Content("~/image/"+Model.Item4.Image) alt="IMG">
+					</div>
+				</div>
+			</div>
+		</div>
+			
+	 
+	</div>
+</section>	
+	
+		
+
+<!-- Product -->
+<section class="bg0 p-t-23 p-b-140" id="Product">
+	<div class="container">
+		<div class="p-b-10">
+			<h3 class="ltext-103 cl5">
+				Product Overview
+			</h3>
+		</div>
+
+		<div class="flex-w flex-sb-m p-b-52">
+			<div class="flex-w flex-l-m filter-tope-group m-tb-10">
+			</div>
+
+			<div class="flex-w flex-c-m m-tb-10">
+				<div class="flex-c-m stext-106 cl6 size-104 bor4 pointer hov-btn3 trans-04 m-r-8 m-tb-4 js-show-filter">
+					<i class="icon-filter cl2 m-r-6 fs-15 trans-04 zmdi zmdi-filter-list"></i>
+					<i class="icon-close-filter cl2 m-r-6 fs-15 trans-04 zmdi zmdi-close dis-none"></i>
+					Filter
+				</div>
+
+				<div class="flex-c-m stext-106 cl6 size-105 bor4 pointer hov-btn3 trans-04 m-tb-4 js-show-search">
+					<i class="icon-search cl2 m-r-6 fs-15 trans-04 zmdi zmdi-search"></i>
+					<i class="icon-close-search cl2 m-r-6 fs-15 trans-04 zmdi zmdi-close dis-none"></i>
+					Search
+				</div>
+		
+			</div>
+
+			<!-- Search product -->
+			<div class="dis-none panel-search w-full p-t-10 p-b-15">
+				<div class="bor8 dis-flex p-l-15">
+					<button class="size-113 flex-c-m fs-16 cl2 hov-cl1 trans-04">
+						<i class="zmdi zmdi-search"></i>
+					</button>
+					<input id="myInputt"  type="text" onkeyup="mFunction()" style="width:100%;height:60px;">
+
+
+				</div>
+			</div>
+
+		</div>
+		<div>
+		
+		</div>
+
+		<div class="row ">
+
+@foreach (var item in Model.Item2)
+			{
+				<div id="myDIV" class="col-sm-6 col-md-4 col-lg-3 p-b-35">
+					<!-- Block2 -->
+					<div class="block2">
+						<div class="block2-pic hov-img0">
+							<img src=@Url.Content("~/image/"+ item.Image) style="height:360px" alt="IMG-PRODUCT">
+
+							<a asp-controller="Customer" asp-action="Index" asp-route-id="@item.IdHandicraft" class="block2-btn flex-c-m stext-103 cl2 size-102 bg0 bor2 hov-btn1 p-lr-15 trans-04">
+								Buy Now
+							</a>
+						</div>
+
+						<div class="block2-txt  flex-w flex-t p-t-14">
+							<div class="block2-txt-child1 flex-col-l ">
+								<a href="product-detail.html" class="stext-104 cl4 hov-cl1 trans-04 js-name-b2 p-b-6">
+									Product Name : @item.Name
+								</a>
+
+								<span class="stext-105 cl3">
+									Price : $@item.Price
+								</span>
+							</div>
+
+							<div class="block2-txt-child2 flex-r p-t-3">
+								<a href="#" class="btn-addwish-b2 dis-block pos-relative js-addwish-b2">
+									<img class="icon-heart1 dis-block trans-04" src="~/website/images/icons/icon-heart-01.png" alt="ICON">
+									<img class="icon-heart2 dis-block trans-04 ab-t-l" src="~/website/images/icons/icon-heart-02.png" alt="ICON">
+								</a>
+							</div>
+						</div>
+					</div>
+				</div>
+
+			}
+
+		</div>
+
+		<!-- Load more -->
+		<div class="flex-c-m flex-w w-full p-t-45">
+			<a href="#" class="flex-c-m stext-101 cl5 size-103 bg2 bor1 hov-btn1 p-lr-15 trans-04">
+				Load More
+			</a>
+		</div>
+	</div>
+</section>
+
+
+
+
+
+
+
+
+
+
+
+
+<style>
+	.heading {
+		text-align: center;
+		color: #454343;
+		font-size: 30px;
+		font-weight: 700;
+		position: relative;
+		margin-bottom: 70px;
+		text-transform: uppercase;
+		z-index: 999;
+	}
+
+	.white-heading {
+		color: #ffffff;
+	}
+
+	.heading:after {
+		content: ' ';
+		position: absolute;
+		top: 100%;
+		left: 50%;
+		height: 40px;
+		width: 180px;
+		border-radius: 4px;
+		transform: translateX(-50%);
+		background: url(img/heading-line.png);
+		background-repeat: no-repeat;
+		background-position: center;
+	}
+
+	.white-heading:after {
+		background: url(https://i.ibb.co/d7tSD1R/heading-line-white.png);
+		background-repeat: no-repeat;
+		background-position: center;
+	}
+
+	.heading span {
+		font-size: 18px;
+		display: block;
+		font-weight: 500;
+	}
+
+	.white-heading span {
+		color: #ffffff;
+	}
+	/*-----Testimonial-------*/
+
+	.testimonial:after {
+		position: absolute;
+		top: -0 !important;
+		left: 0;
+		content: " ";
+		background: url(img/testimonial.bg-top.png);
+		background-size: 100% 100px;
+		width: 100%;
+		height: 100px;
+		float: left;
+		z-index: 99;
+	}
+
+	.testimonial {
+		min-height: 375px;
+		position: relative;
+		background: url(https://i.ibb.co/PTJDkgb/testimonials.jpg);
+		padding-top: 50px;
+		padding-bottom: 50px;
+		background-position: center;
+		background-size: cover;
+	}
+
+	#testimonial4 .carousel-inner:hover {
+		cursor: -moz-grab;
+		cursor: -webkit-grab;
+	}
+
+	#testimonial4 .carousel-inner:active {
+		cursor: -moz-grabbing;
+		cursor: -webkit-grabbing;
+	}
+
+	#testimonial4 .carousel-inner .item {
+		overflow: hidden;
+	}
+
+	.testimonial4_indicators .carousel-indicators {
+		left: 0;
+		margin: 0;
+		width: 100%;
+		font-size: 0;
+		height: 20px;
+		bottom: 15px;
+		padding: 0 5px;
+		cursor: e-resize;
+		overflow-x: auto;
+		overflow-y: hidden;
+		position: absolute;
+		text-align: center;
+		white-space: nowrap;
+	}
+
+		.testimonial4_indicators .carousel-indicators li {
+			padding: 0;
+			width: 14px;
+			height: 14px;
+			border: none;
+			text-indent: 0;
+			margin: 2px 3px;
+			cursor: pointer;
+			display: inline-block;
+			background: #ffffff;
+			-webkit-border-radius: 100%;
+			border-radius: 100%;
+		}
+
+		.testimonial4_indicators .carousel-indicators .active {
+			padding: 0;
+			width: 14px;
+			height: 14px;
+			border: none;
+			margin: 2px 3px;
+			background-color: #9dd3af;
+			-webkit-border-radius: 100%;
+			border-radius: 100%;
+		}
+
+		.testimonial4_indicators .carousel-indicators::-webkit-scrollbar {
+			height: 3px;
+		}
+
+		.testimonial4_indicators .carousel-indicators::-webkit-scrollbar-thumb {
+			background: #eeeeee;
+			-webkit-border-radius: 0;
+			border-radius: 0;
+		}
+
+	.testimonial4_control_button .carousel-control {
+		top: 175px;
+		opacity: 1;
+		width: 40px;
+		bottom: auto;
+		height: 40px;
+		font-size: 10px;
+		cursor: pointer;
+		font-weight: 700;
+		overflow: hidden;
+		line-height: 38px;
+		text-shadow: none;
+		text-align: center;
+		position: absolute;
+		background: transparent;
+		border: 2px solid #ffffff;
+		text-transform: uppercase;
+		-webkit-border-radius: 100%;
+		border-radius: 100%;
+		-webkit-box-shadow: none;
+		box-shadow: none;
+		-webkit-transition: all 0.6s cubic-bezier(0.3,1,0,1);
+		transition: all 0.6s cubic-bezier(0.3,1,0,1);
+	}
+
+		.testimonial4_control_button .carousel-control.left {
+			left: 7%;
+			top: 50%;
+			right: auto;
+		}
+
+		.testimonial4_control_button .carousel-control.right {
+			right: 7%;
+			top: 50%;
+			left: auto;
+		}
+
+			.testimonial4_control_button .carousel-control.left:hover,
+			.testimonial4_control_button .carousel-control.right:hover {
+				color: #000;
+				background: #fff;
+				border: 2px solid #fff;
+			}
+
+	.testimonial4_header {
+		top: 0;
+		left: 0;
+		bottom: 0;
+		width: 550px;
+		display: block;
+		margin: 30px auto;
+		text-align: center;
+		position: relative;
+	}
+
+		.testimonial4_header h4 {
+			color: #ffffff;
+			font-size: 30px;
+			font-weight: 600;
+			position: relative;
+			letter-spacing: 1px;
+			text-transform: uppercase;
+		}
+
+	.testimonial4_slide {
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		width: 70%;
+		margin: auto;
+		padding: 20px;
+		position: relative;
+		text-align: center;
+	}
+
+		.testimonial4_slide img {
+			top: 0;
+			left: 0;
+			right: 0;
+			width: 136px;
+			height: 136px;
+			margin: auto;
+			display: block;
+			color: #f2f2f2;
+			font-size: 18px;
+			line-height: 46px;
+			text-align: center;
+			position: relative;
+			border-radius: 50%;
+			box-shadow: -6px 6px 6px rgba(0, 0, 0, 0.23);
+			-moz-box-shadow: -6px 6px 6px rgba(0, 0, 0, 0.23);
+			-o-box-shadow: -6px 6px 6px rgba(0, 0, 0, 0.23);
+			-webkit-box-shadow: -6px 6px 6px rgba(0, 0, 0, 0.23);
+		}
+
+		.testimonial4_slide p {
+			color: #ffffff;
+			font-size: 20px;
+			line-height: 1.4;
+			margin: 40px 0 20px 0;
+		}
+
+		.testimonial4_slide h4 {
+			color: #ffffff;
+			font-size: 22px;
+		}
+
+	.testimonial .carousel {
+		padding-bottom: 50px;
+	}
+
+	.testimonial .carousel-control-next-icon, .testimonial .carousel-control-prev-icon {
+		width: 35px;
+		height: 35px;
+	}
+	/* ------testimonial  close-------*/
+</style>
+<section class="testimonial text-center">
+  <div class="container">
+
+    <div class="heading white-heading">
+      Testimonial
+    </div>
+    <div id="testimonial4" class="carousel slide testimonial4_indicators testimonial4_control_button thumb_scroll_x swipe_x" data-ride="carousel" data-pause="hover" data-interval="5000" data-duration="2000">
+
+      <div class="carousel-inner" role="listbox"> @*active*@
+       @foreach (var item in Model.Item5)
+				{
+					<div class="carousel-item ">
+						<div class="testimonial4_slide">
+							<img src=@Url.Content("~/image/"+ item.IdNavigation.Image) class="img-circle img-responsive" />
+							<p> @item.Text</p>
+							<h4>@item.IdNavigation.FName  @item.IdNavigation.LName</h4>
+						</div>
+					</div>
+				}
+
+      </div>
+      <a class="carousel-control-prev" href="#testimonial4" data-slide="prev">
+        <span class="carousel-control-prev-icon"></span>
+      </a>
+      <a class="carousel-control-next" href="#testimonial4" data-slide="next">
+        <span class="carousel-control-next-icon"></span>
+      </a>
+    </div>
+  </div>
+</section>
+<script>
+	var x = document.querySelectorAll(".carousel-item");
+	x[0].classList.add("active");
+	console.log(x);
+	console.log("dddddddd");
+	console.log(x[0]);
+	//$("#myInput").on("keyup", function () {
+	//	var value = $(this).val().toLowerCase();
+
+	//	$("#myDIV *").filter(function () {
+	//		$(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+	//	});
+	//});
+
+	function mFunction() {
+		// Declare variables
+		var input, filter, ul, li, a, i, txtValue;
+		input = document.getElementById('myInputt');
+		filter = input.value.toUpperCase();
+
+		ul = document.querySelectorAll(".block2-txt-child1");
+		divv = document.querySelectorAll("#myDIV");
+		//li = ul.getElementsByTagName('a');
+		//console.log(ul[0]);
+
+		//   console.log("dddddd");
+		//console.log(ul[0].getElementsByTagName("a")[0].innerText);
+		// Loop through all list items, and hide those who don't match the search query
+		for (i = 0; i < ul.length; i++) {
+			a = ul[i].getElementsByTagName("a")[0];
+			//console.log(a);
+
+			txtValue = a.textContent || a.innerText;
+			//console.log(txtValue);
+			if ((txtValue.toUpperCase().indexOf(filter) > -1)==true) {
+				divv[i].style.display = " ";
+				console.log(divv[i]);
+			} else{
+				divv[i].style.display = "none";
+
+			}
+		}
+	}
+	
+</script>

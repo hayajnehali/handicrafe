@@ -1,0 +1,115 @@
+﻿@model handicrafe.Models.Handicraft
+
+@{
+    ViewData["Title"] = "Delete";
+    Layout = "~/Views/Shared/_vendor_Layout1.cshtml";
+}
+
+
+<h5 style="padding:6px 10px ; border-radius:5px;background-color:brown;color:#fff">Are you sure you want to delete this?</h5>
+
+<div class="row" style="border: 1px solid; border-radius: 3px; padding: 11px;">
+    <div class="col-6" style="height:400px">
+        <img src=@Url.Content("~/image/"+ Model.Image) asp-append-version="true" style="width:100%;height:100%">
+
+    </div>
+    <div class="col-6" >
+ <div>
+            <h4>Details</h4>
+            <hr />
+            <dl class="row">
+                <dt class="col-sm-4 py-2">
+                    @Html.DisplayNameFor(model => model.Name)
+                </dt>
+                <dd class="col-sm-8 py-2">
+                    @Html.DisplayFor(model => model.Name)
+                </dd>
+                <dt class="col-sm-4 py-2">
+                    @Html.DisplayNameFor(model => model.Datee)
+                </dt>
+                <dd class="col-sm-8 py-2">
+                    @Html.DisplayFor(model => model.Datee)
+                </dd>
+                <dt class="col-sm-4 py-2">
+                    @Html.DisplayNameFor(model => model.Price)
+                </dt>
+                <dd class="col-sm-8 py-2">
+                    @Html.DisplayFor(model => model.Price)
+                </dd>
+                <dt class="col-sm-4 py-2">
+                    @Html.DisplayNameFor(model => model.Quantity)
+                </dt>
+                <dd class="col-sm-8 py-2">
+                    @Html.DisplayFor(model => model.Quantity)
+                </dd>
+ 
+                <dt class="col-sm-4 py-2">
+                    @*  @Html.DisplayNameFor(model => model.IdNavigation)*@
+                    Vendor Name
+                </dt>
+                <dd class="col-sm-8 py-2">
+                    @*
+                    @Html.DisplayFor(model => model.IdNavigation.FName +" "+ model.IdNavigation.LName)*@
+                    @(Model.IdNavigation.FName + " " + Model.IdNavigation.LName)
+                </dd>
+
+                <dt class="col-sm-6 py-2">
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="IdHandicraft" />
+        <input type="submit" value="Delete" class="btn btn-danger" /> |
+        <a asp-action="Index">Back to List</a>
+    </form>
+                </dt>
+            </dl>
+        </div>
+    </div>
+</div>
+@*
+<div>
+
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Datee)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Datee)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Price)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Price)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Quantity)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Quantity)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Image)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Image)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.IdNavigation)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.IdNavigation.Email)
+        </dd class>
+    </dl>
+    
+    <form asp-action="Delete">
+        <input type="hidden" asp-for="IdHandicraft" />
+        <input type="submit" value="Delete" class="btn btn-danger" /> |
+        <a asp-action="Index">Back to List</a>
+    </form>
+</div>*@
